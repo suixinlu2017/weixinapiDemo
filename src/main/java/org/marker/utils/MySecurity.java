@@ -23,8 +23,10 @@ public class MySecurity {
 		String strDes = null;
 		byte[] bt = strSrc.getBytes();
 		try {
-			if (encodeType == null || "".equals(encodeType))
-				encodeType = MD5;//默认使用MD5
+			if (encodeType == null || "".equals(encodeType)) {
+				/** 默认使用MD5 **/
+				encodeType = MD5;
+			}
 			md = MessageDigest.getInstance(encodeType);
 			md.update(bt);
 			strDes = bytes2Hex(md.digest());
